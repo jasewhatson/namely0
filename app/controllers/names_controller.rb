@@ -29,6 +29,7 @@ class NamesController < ApplicationController
   # POST /names.json
   def create
     @name = Name.new(name_params)
+    @name.user = current_user
 
     respond_to do |format|
       if @name.save
